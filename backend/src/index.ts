@@ -76,14 +76,20 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   });
 });
 
-const PORT = process.env.PORT || 5000;
+// Export app for Vercel serverless functions
+export default app;
 
-app.listen(PORT, () => {
-  console.log(`🚀 SquadHR Server running on port ${PORT}`);
-});
+// Only start server if not in Vercel environment
+if (process.env.VERCEL !== '1') {
+  const PORT = process.env.PORT || 5000;
+  
+  app.listen(PORT, () => {
+    console.log(`🚀 SquadHR Server running on port ${PORT}`);
+  });
 
-// Graceful shutdown
-process.on('beforeExit', async () => {
-  await prisma.$disconnect();
-});
+  // Graceful shutdown
+  process.on('beforeExit', async () => {
+    await prisma.$disconnect();
+  });
+}
 
