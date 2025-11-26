@@ -16,7 +16,7 @@ interface AuthState {
 }
 
 // Load initial state from localStorage
-const loadAuthState = (): Partial<AuthState> => {
+const loadAuthState = (): { user: User | null; token: string | null; isAuthenticated: boolean } => {
   const token = localStorage.getItem('token');
   const userStr = localStorage.getItem('user');
   if (token && userStr) {

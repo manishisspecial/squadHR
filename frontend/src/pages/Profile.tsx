@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useAuthStore } from '../store/authStore';
 import api from '../utils/api';
 import { User, Mail, Building2, Briefcase, Phone, MapPin, Calendar, Edit2 } from 'lucide-react';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const Profile = () => {
-  const { user } = useAuthStore();
   const [profile, setProfile] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

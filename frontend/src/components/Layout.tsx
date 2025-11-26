@@ -19,7 +19,6 @@ const Layout = () => {
   const { user, logout } = useAuthStore();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -40,7 +39,6 @@ const Layout = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setSidebarOpen(false);
   }, [location]);
 
   return (

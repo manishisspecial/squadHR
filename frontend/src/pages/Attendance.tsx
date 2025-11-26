@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useAuthStore } from '../store/authStore';
 import api from '../utils/api';
-import { Clock, LogIn, LogOut } from 'lucide-react';
+import { LogIn, LogOut } from 'lucide-react';
 import { format } from 'date-fns';
 
 const Attendance = () => {
-  const { user } = useAuthStore();
   const [attendance, setAttendance] = useState<any[]>([]);
   const [todayAttendance, setTodayAttendance] = useState<any>(null);
   const [loading, setLoading] = useState(true);

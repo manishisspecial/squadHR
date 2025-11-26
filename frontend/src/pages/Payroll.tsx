@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import api from '../utils/api';
-import { format } from 'date-fns';
 
 const Payroll = () => {
   const [payrolls, setPayrolls] = useState<any[]>([]);
